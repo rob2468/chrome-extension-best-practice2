@@ -1,0 +1,40 @@
+{
+  "name": "test",
+  "description": "",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "html/popup.html"
+  },
+  "background": {
+    "service_worker": "baseScript/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [],
+      "js": ["/baseScript/contentScript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["plugins/*", "libs/*", "static/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "notifications",
+    "tabs",
+    "alarms",
+    "activeTab",
+    "scripting"
+  ],
+  "icons": {
+    "16": "logo192.png",
+    "48": "logo192.png",
+    "128": "logo192.png"
+  }
+}
